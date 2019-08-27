@@ -1,2 +1,3 @@
 let arr = [];
-arr = [123]
+arr = [123];
+console.log(arr)
