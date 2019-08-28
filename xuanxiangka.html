@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .option .active{
+            background: red;
+        }
+        .inner div{
+            display: none;
+            font-size: 100px;
+        }
+        .inner .show{
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div id='tab'>
+        <div class="option">
+            <button class="active">111</button>
+            <button>222</button>
+            <button>333</button>
+        </div>
+        <div class="inner">
+            <div class="show">inner1</div>
+            <div>inner2</div>
+            <div>inner3</div>
+        </div>
+    </div>
+</body>
+<script>
+    var btns = document.querySelectorAll('.option button');
+    var inners = document.querySelectorAll('.inner div');
+    for(var i = 0;i<btns.length;i++){
+        btns[i].index = i
+        btns[i].onmouseover = fn;
+    }
+    function fn(){
+        for(var i = 0; i< btns.length;i++){
+            btns[i].classList.remove('active');
+            inners[i].classList.remove('show');
+        }
+        this.classList.add('active')
+        inners[this.index].classList.add('show')
+    }
+</script>
+
+</html>

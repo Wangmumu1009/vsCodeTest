@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .father{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .input {
+            display: block;
+            width: 200px;
+            height: 40px;
+            line-height: 40px;
+            font-size: 30px;
+        }
+        .result {
+            width: 200px;
+        }
+        .list {
+            width: 200px;
+            line-height: 40px;
+            font-size: 30px;
+            border: 1px solid;
+        }
+    </style>
+</head>
+<body>
+    <div class="father">
+    <div>
+        <input id='inputs' class="input" value="" />
+        <div id='list' class="result"></div>
+    </div>
+</div>
+    <script>
+        const render = renderList => {
+            let renderHtml = ''
+            renderList.forEach(e => {
+                renderHtml = renderHtml + `<div class="list">${e}</div>`
+            })
+            document.getElementById('list').innerHTML = renderHtml
+        }
+        var todoList = []
+        var obj = {};
+        Object.defineProperty(obj, "inputs", {
+            set: function (newVal) {
+                let renderList = []
+                todoList.forEach(e => {
+                    if (e.indexOf(newVal) !== -1) {
+                        renderList.push(e)
+                    }
+                })
+                render(renderList)
+            }
+        })
+        document.getElementById('inputs').addEventListener('keyup', function (e) {
+            obj.inputs = e.target.value;
+        })
+        document.getElementById('inputs').addEventListener("keydown", e => {
+            if (event.keyCode == 13) {
+                todoList.push(e.target.value)
+                e.target.value = ''
+                let renderList = todoList
+                render(renderList)
+                console.log(JSON.stringify(todoList))
+            }
+ 
+        }, true);
+    </script>
+</body>
+ 
+</html>
