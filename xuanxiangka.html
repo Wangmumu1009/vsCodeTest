@@ -35,6 +35,7 @@
     </div>
 </body>
 <script>
+    //获取到了一组元素，一组标签，一组内容
     var btns = document.querySelectorAll('.option button');
     var inners = document.querySelectorAll('.inner div');
     for(var i = 0;i<btns.length;i++){
@@ -46,6 +47,7 @@
             btns[i].classList.remove('active');
             inners[i].classList.remove('show');
         }
+        //事件中this是当前触发事件的元素
         this.classList.add('active')
         inners[this.index].classList.add('show')
     }
