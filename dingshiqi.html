@@ -29,7 +29,7 @@
             var now = 0;
             var timer = 1;
             start[0].onclick = function () {
-                clearInterval(timer)
+                clearInterval(timer)//管理，防止点的越来越快
                 timer = setInterval(function () {
                     now++;
                     box.style.background = color[now % color.length]
