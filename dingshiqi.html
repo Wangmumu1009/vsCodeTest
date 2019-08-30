@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #contain {
+            height: 100px;
+            width: 100px;
+            display: block;
+            background: black;
+        }
+    </style>
+</head>
+
+<body>
+    <button>start</button>
+    <button>end</button>
+    <div id="contain"></div>
+    <script>
+        (function () {
+            var start = document.querySelectorAll('button');
+            // var end = document.querySelectorAll('.end');
+            var box = document.querySelector("#contain");
+            var color = ['red', 'pink', 'green', 'blue', 'yellow'];
+            var now = 0;
+            var timer = 1;
+            start[0].onclick = function () {
+                clearInterval(timer)
+                timer = setInterval(function () {
+                    now++;
+                    box.style.background = color[now % color.length]
+                }, 500)
+            };
+            start[1].onclick = function () {
+                clearInterval(timer)
+            }
+        })()
+
+    </script>
+</body>
+
+</html>

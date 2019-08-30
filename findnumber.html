@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .nav .active {
+            background: red;
+        }
+
+        .inner div {
+            display: none;
+            font-size: 100px;
+        }
+
+        .inner .show {
+            display: block;
+        }
+        #wrap2{
+            margin-top:20px
+        }
+    </style>
+</head>
+
+<body>
+    <div id='wrap' class="wrap">
+        <nav class="nav">
+            <button class="active">111</button>
+            <button>222</button>
+            <button>333</button>
+        </nav>
+        <div class="inner">
+            <div class="show">inner1</div>
+            <div>inner2</div>
+            <div>inner3</div>
+        </div>
+    </div>
+    <div id='wrap2' class="wrap">
+            <nav class="nav">
+                <button class="active">111</button>
+                <button>222</button>
+                <button>333</button>
+            </nav>
+            <div class="inner">
+                <div class="show">inner1</div>
+                <div>inner2</div>
+                <div>inner3</div>
+            </div>
+        </div>
+    <script>
+        var wrap = document.querySelector('#wrap');
+        var btns = wrap.querySelectorAll('.nav button');
+        var inners = wrap.querySelectorAll('.inner div');
+        var now = 0;
+
+        // for(var i=0; i< btns.length;i++){
+        //     btns[i].index = i;
+        //     btns[i].onclick = function(){
+        //         for(var i=0; i< btns.length;i++){
+        //             btns[i].classList.remove('active');
+        //             inners[i].classList.remove('show');
+        //         }
+        //         this.classList.add('active');
+        //         inners[this.index].classList.add('show')
+
+
+        //     }
+        // }
+        for (var i = 0; i < btns.length; i++) {
+            btns[i].index = i;
+            btns[i].onclick = function () {
+                btns[now].classList.remove('active');
+                inners[now].classList.remove('show');
+                this.classList.add('active');
+                inners[this.index].classList.add('show');
+                now = this.index
+
+            }
+        }
+    </script>
+
+</body>
+
+</html>
