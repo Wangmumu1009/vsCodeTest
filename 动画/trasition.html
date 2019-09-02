@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #box{
+            width: 100px;
+            height: 100px;
+            background: red;
+            transition:2s; 
+            display: none;
+            /* 元素的样式发生改变给元素添加一个过渡动画 */
+        }
+        /* #box.hover{
+            width: 200px;
+            height: 200px;
+            background: blue;
+        } */
+    </style>
+</head>
+<body>
+    <button id="btn">show</button>
+    <div id="box"></div>
+    <script>
+        // box.onmouseover = function(){
+        //     this.classList.add('hover')
+        // };
+        // box.onmouseout = function(){
+        //     this.classList.remove('hover')
+        // }
+        btn.onclick = function(){
+            box.style.display = 'block';
+            //元素在页面上渲染完之前，transition是不起效果的
+            setTimeout(function(){
+                box.style.width = '500px'
+            },30);
+        };
+    </script>
+</body>
+</html>

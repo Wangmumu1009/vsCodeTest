@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        ul{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        #time{
+            width: 200px;;
+            height: 200px;
+            border: 4px solid red;
+            margin: 100px auto;
+            border-radius: 50%;
+            position: relative;
+        }
+        .clock{
+            width: 200px;
+            height: 200px;
+            position: relative;
+        }
+        .clock li{
+            position: absolute;
+            left: 99px;
+            top: 0;
+            width: 2px;
+            height: 10px;
+            background: red;
+            transform-origin: center 100px
+        }
+        .clock li:nth-of-type(5n+1){
+            width: 4px;
+            height: 15px;
+            left: 98px;
+            background: black
+        }
+        #hours{
+            width: 8px;
+            height: 50px;
+            background: #000;
+            position: absolute;
+            top: 50px;
+            left: 96px;
+            transform-origin: center bottom
+        }
+        #mini{
+            width: 6px;
+            height: 70px;
+            top: 30px;
+            left: 97px;
+            position: absolute;
+            background: plum;
+            transform-origin: center bottom
+        }
+        #se{
+            width: 4px;
+            height: 90px;
+            top: 10px;
+            left: 98px;
+            position: absolute;
+            background: yellow;
+            transform-origin: center bottom
+        }
+        #icon{
+            width: 20px;
+            height: 20px;
+            top: 90px;
+            left: 90px;
+            position: absolute;
+            background: black;
+            border-radius: 50%
+        }
+    </style>
+</head>
+<body>
+    <div id="time">
+        <ul class="clock"></ul>
+        <div id="hours"></div>
+        <div id="mini"></div>
+        <div id="se"></div>
+        <div id="icon"></div>
+    </div>
+    <script>
+        (function(){
+            var clock = document.querySelector(".clock");
+            var inner = '';
+            var len = 60;
+            var deg = 360/len
+            for(var i = 0;i<len;i++){
+                inner += '<li style = "transform:rotate('+deg*i+'deg)"></li>'
+            }
+            clock.innerHTML = inner;
+        })();
+       ( function(){
+            var h = document.querySelector('#hours');
+            var m = document.querySelector('#mini');
+            var s = document.querySelector('se');
+            toTime();
+            setInterval(toTime,1000); 
+            function toTime(){
+                var date = new Date();
+                var s = date.getSeconds();
+                se.style.transform = 'rotate('+s*6+'deg)';
+                var m = date.getMinutes() + s/60;
+                mini.style.transform = 'rotate('+m*6+'deg)';
+                var h = date.getHours() + m/60;
+                hours.style.transform = 'rotate('+h*30+'deg)';
+            }
+        })();
+    </script>
+</body>
+</html>
