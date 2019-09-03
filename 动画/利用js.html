@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #box {
+            position: absolute;
+            top: 100px;
+            left: 0;
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="run">run</button>
+    <button id="stop">stop</button>
+    <div id="box"></div>
+    <script>
+        (function () {
+            var run = document.querySelector("#run");
+            var stop = document.querySelector("#stop");
+            var box = document.querySelector("#box")
+            var x = 0;
+            var timer = 0;
+            run.onclick = function () {
+                clearInterval(timer)
+                timer = setInterval(function () {
+                    // var l = parseFloat(getComputedStyle(box)["left"]);
+                    // box.style.left = l+1+'px'
+                    x += 1;
+                    box.style.transform = 'translateX(' + x + 'px)';
+                }, 1);
+            }
+            stop.onclick = function () {
+                clearInterval(timer);
+            }
+        })();
+    </script>
+</body>
+
+</html>
