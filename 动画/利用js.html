@@ -23,25 +23,85 @@
     <button id="stop">stop</button>
     <div id="box"></div>
     <script>
-        (function () {
-            var run = document.querySelector("#run");
-            var stop = document.querySelector("#stop");
-            var box = document.querySelector("#box")
-            var x = 0;
-            var timer = 0;
-            run.onclick = function () {
-                clearInterval(timer)
-                timer = setInterval(function () {
-                    // var l = parseFloat(getComputedStyle(box)["left"]);
-                    // box.style.left = l+1+'px'
-                    x += 1;
-                    box.style.transform = 'translateX(' + x + 'px)';
-                }, 1);
+        //         function Animal() {}
+        // var cat = new Animal();
+
+        // Animal.prototype = { bark: true };
+        // var dog = new Animal();
+
+        // console.log(cat.bark);
+        // console.log(dog.bark); 
+        // setTimeout(function() {
+        //   console.log(11111);
+        // }, 0);
+        // new Promise(resolve => {
+        //   console.log(22222);
+        //   resolve(console.log(33333));
+        //   console.log(44444);
+        // }).then(function() {
+        //   console.log(55555);
+        // });
+        // console.log(66666);
+        // //2 3 4 6 5 1
+        // Object.keys(data).forEach(function (key) {
+        //     Object.defineProperty(data, key, {
+        //         enumerable: true,
+        //         configurable: true,
+        //         get: function () {
+        //             console.log('get');
+        //         },
+        //         set: function (newVal) {
+        //             // 当属性值发生变化时我们可以进行额外操作
+        //             console.log(`大家好,我系${newVal}`);
+        //             say(newVal);
+        //         },
+        //     });
+        // });
+        var str1 = '';
+        var str = 'giubui5613254asdc546';
+        for (let i of str) {
+            if (i >= '0' && i <= '9') {
+                str1 += i
+            } else {
+                str1 += "z"
             }
-            stop.onclick = function () {
-                clearInterval(timer);
-            }
-        })();
+        }
+        var strs = str1.split("z");
+        var max = 0;
+        for (var i = 0; i < strs.length; i++) {
+            max = strs[i].length > max ? strs[i].length : max;
+        }
+        for (var i = 0; i < strs.length; i++) {
+            if (strs[i].length == max)
+                console.log(strs[i]);
+        }
+        console.log("," + max)
+        // console.log('script start')
+        // async function async1() {
+        //     await async2()
+        //     console.log('async1 end')
+        // }
+        // async function async2() {
+        //     console.log('async2 end')
+        // }
+        // async1()
+        // setTimeout(function () {
+        //     console.log('setTimeout')
+        // }, 0)
+        // new Promise(resolve => {
+        //     console.log('Promise')
+        //     resolve()
+        // })
+        //     .then(function () {
+        //         console.log('promise1')
+        //     })
+        //     .then(function () {
+        //         console.log('promise2')
+        //     })
+        // console.log('script end')
+
+
+
     </script>
 </body>
 
