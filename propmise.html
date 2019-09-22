@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let p = new Promise((resolve,reject)=>{
+            //处理异步
+            setTimeout(function(){
+                console.log('定时器执行')
+                //失败状态
+                reject('失败了')
+            },5000)
+        });
+        //then是在promise返回结果后才执行
+        //then里面可以传递两个函数，第一个成功时候执行的，第二个失败时执行
+        p.then((info)=>{
+            console.log(info);
+            console.log('执行then')
+        },()=>{
+            console.log('失败执行')
+        });
+    </script>
+</body>
+</html>
