@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="data.js"></script>
+    <style>
+        .view ul ul{
+            display: none;
+        }
+        .show{
+            display: block !important;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="view">
+
+    </div>
+    <script>
+        let view = document.querySelector('.view');
+
+        function addUl(data) {
+            let inner = '<ul>';
+            data.forEach((item, index) => {
+                inner += `
+                    <li>
+                        <p>${item.title}</p>
+                        ${
+                            getChild(item.id)?addUl(getChild(item.id)):''
+                        }
+                    </li>`
+            })
+            inner += '</ul>';
+            return inner
+        }
+        view.innerHTML = addUl(getChild(-1));
+
+        let lists = document.querySelectorAll('.view p');
+        lists.forEach(item => {
+            item.onclick = function(){
+                let ul = item.nextElementSibling;
+                console.log(ul);
+                ul.classList.toggle('show')
+            }
+        })
+        //通过id获取子级
+        function getChild(id) {
+            return data.filter(item => item.pid == id)
+        }
+    </script>
+</body>
+
+</html>
