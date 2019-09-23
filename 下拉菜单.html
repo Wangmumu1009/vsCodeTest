@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div class="wrap">
+        <div class="menu">
+            <div class="title">菜单</div>
+            <ul class="list" style="display: none">
+                <li>微博</li>
+                <li>图片</li>
+                <li>博客</li>
+                <li>视频</li>
+                <li>更多》》</li>
+            </ul>
+        </div>
+    </div>
+    <script>
+        let menu = document.querySelector('.menu')
+        let title = document.querySelector('.title')
+        let list = document.querySelector('.list')
+        let lists = document.querySelectorAll('.list li')
+        menu.addEventListener('click',function(e){
+            list.style.display = 'block';
+            e.stopPropagation();
+        })
+        lists.forEach(item =>{
+            item.addEventListener('click',function(e){
+                let txt = item.innerText;
+                if(txt == '更多》》'){
+                    return false;
+                }
+                title.innerText = txt;
+
+                list.style.display='none';
+               e.cancelBubble = true;
+                //e.stopPropagation();
+            })
+        })
+
+        document.addEventListener('click',function(){
+            lisy.style.display='none'
+        })
+    </script>
+</body>
+</html>
