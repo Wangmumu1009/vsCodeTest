@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: absolute;
+        }
+        
+
+    </style>
+</head>
+<body>
+    <div id="box">
+
+    </div>
+    <script>
+        let box = document.querySelector('#box')
+        box.addEventListener('mousedown',function(e){
+            let startX = e.clientX;
+            let startY = e.clientY;
+            // console.log(startX)
+
+            //记录原来的left和top
+            let l = box.offsetLeft;
+            let t = box.offsetTop;
+
+            box.addEventListener('mousemove',function(e){
+                let nowX = e.clientX;
+                let nowY = e.clientY;
+
+                //计算鼠标移动的距离 当前-其实
+                let disX = nowX - startX;
+                let disY = nowY - startY;
+
+                console.log(disX)
+                box.style.left = disX + l + 'px';
+                box.style.top = disY + t + 'px';
+            })
+        })
+    </script>
+</body>
+</html>
