@@ -31,7 +31,8 @@
             let l = box.offsetLeft;
             let t = box.offsetTop;
 
-            box.addEventListener('mousemove',function(e){
+            document.addEventListener('mousemove',move)
+            function move(e){
                 let nowX = e.clientX;
                 let nowY = e.clientY;
 
@@ -39,10 +40,17 @@
                 let disX = nowX - startX;
                 let disY = nowY - startY;
 
-                console.log(disX)
+                // console.log(disX)
                 box.style.left = disX + l + 'px';
                 box.style.top = disY + t + 'px';
-            })
+            }
+                document.addEventListener('mouseup',function(){
+                    document.removeEventListener('mousemove',move)
+                },{
+                    once:true
+                })
+            //限制范围
+            
         })
     </script>
 </body>
