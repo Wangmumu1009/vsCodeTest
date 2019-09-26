@@ -69,17 +69,29 @@
 
         //     }
         // }
-        for (var i = 0; i < btns.length; i++) {
-            btns[i].index = i;
-            btns[i].onclick = function () {
-                btns[now].classList.remove('active');
-                inners[now].classList.remove('show');
-                this.classList.add('active');
-                inners[this.index].classList.add('show');
-                now = this.index
+        // for (var i = 0; i < btns.length; i++) {
+        //     btns[i].index = i;
+        //     btns[i].onclick = function () {
+        //         btns[now].classList.remove('active');
+        //         inners[now].classList.remove('show');
+        //         this.classList.add('active');
+        //         inners[this.index].classList.add('show');
+        //         now = this.index
 
-            }
-        }
+        //     }
+        // }
+        function com_baiyi_retainPositives(array) {
+	// 请在此添加代码
+	var res = [];
+	for(int i = 0;i<array.length;i++){
+		if(array[i]>0){
+			res.push(array[i])
+		}
+	}
+	return( res.sort())
+}
+
+        
     </script>
 
 </body>
