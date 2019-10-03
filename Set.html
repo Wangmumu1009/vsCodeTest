@@ -1,29 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
+
 <body>
     <script>
-        let set = new Set([1,2,3,4,4,4,5])
-        
+        let set = new Set([1, 2, 3, 4, 4, 4, 5])
+
         console.log(set)//[1,2,3,4,5] 基本用法
 
-        let arr = [1,2,3];
+        let arr = [1, 2, 3];
         let res = arr instanceof Array;
         console.log(res);
         let resArr = Object.prototype.toString.call(arr);
         console.log(resArr === '[object Array]')
 
-        let object = {name:'zhangsan'}
+        let object = { name: 'zhangsan' }
         let resObj = Object.prototype.toString.call(object);
         console.log(resArr === '[object Object]')
 
-        let set1 = new Set([1,2,3,4,4,4,5])
-        console.log(set1 instanceof Set )//true
+        let set1 = new Set([1, 2, 3, 4, 4, 4, 5])
+        console.log(set1 instanceof Set)//true
 
         let resSet = Object.prototype.toString.call(set1);
         console.log(resSet)//[object Set]
@@ -31,9 +33,10 @@
         //转成数组 通过Array.from
 
         let resArr1 = Array.from(set);
-        var a = [... new Set([1,2,3,4,4,5])]
-        console.log('aa'+a)
-
+        var a = [... new Set([1, 2, 3, 4, 4, 5])]
+        console.log('aa' + a)
+        
     </script>
 </body>
+
 </html>
