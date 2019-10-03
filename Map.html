@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let map = new Map();
+        
+        let o1 = {a:1};
+        let o2 = {b:2};
+        let o3 = {};
+        o3[o1] = 1;//toString() [object Object]
+        o3[o2] = 2;//toString() [object Object]
+        console.log(o3)//输出Object 底下是 [object Object]2，因为转了，没有map的时候键值对的键都是字符串
+
+        map.set(o1,'123');
+        map.set(o2,'345')
+        console.log(map)
+        console.log(map.get(o1))
+        console.log(map.get(o2))
+    </script>
+</body>
+</html>
